@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <NavbarCustom />
       <Component {...pageProps} />
-      <Footer />
+     
     </>
   );
 }
