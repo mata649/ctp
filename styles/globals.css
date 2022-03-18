@@ -22,6 +22,25 @@
   transition-duration: 0.2s;
   transition-delay: 0.1s;
 } */
+
+
+.admin-module {
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 5rem;
+  cursor: pointer;
+  transition-delay: 0.1;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+.admin-module:hover {
+  transform: scale(105%);
+  background-color: #00aab5;
+  transition-duration: 0.1s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-out;
+}
+
 .carousel-container {
   margin-top: 36px;
 }
@@ -66,12 +85,14 @@
   padding: 10px;
   transition-delay: 0.1s;
   transition-duration: 0.2s;
+  transition-timing-function: ease-in;
 }
 .noticia-card:hover {
   transform: scale(1.05);
   border-width: 3px;
-transition-duration: 0.1s;  
-transition-delay: 0.1s;
+  transition-duration: 0.1s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-out;
 }
 
 .swiper {
@@ -104,4 +125,44 @@ transition-delay: 0.1s;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.table-icon {
+  padding: 2px;
+  font-size: 18px;
+  cursor: pointer;
+  transition-delay: 0.1s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.table-icon:hover {
+  color: #fc8800;
+  transform: scale(110%);
+  transition-delay: 0.1s;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+}
+
+/* Modal */
+.modalBody {
+  position: relative;
+  border-radius: 2%;
+  background-color: #fff;
+  padding: 50px;
+  margin-top: 50px;
+}
+.modalMain {
+  position: relative;
+}
+.modalOverlay {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }

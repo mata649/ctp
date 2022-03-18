@@ -1,10 +1,15 @@
+import Link from "next/link";
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
 export default function NavbarCustom() {
+  const { isLogged, logOut, userInfo } = useContext(UserContext);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          CTP Cañas
-        </a>
+        <Link href="/">
+          <a className="navbar-brand">CTP Cañas</a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,9 +24,11 @@ export default function NavbarCustom() {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/">
-                Inicio
-              </a>
+              <Link href="/">
+                <a className="nav-link" aria-current="page">
+                  Inicio
+                </a>
+              </Link>
             </li>
 
             <li className="nav-item dropdown">
@@ -40,26 +47,30 @@ export default function NavbarCustom() {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a className="dropdown-item" href="/becas">
-                    Becas
-                  </a>
+                  <Link href="/becas">
+                    <a className="dropdown-item">Becas</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/admision">
-                    Admisión
-                  </a>
+                  <Link href="/admision">
+                    <a className="dropdown-item">Admisión</a>
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/noticias">
-                Noticias
-              </a>
+              <Link href="/noticias">
+                <a className="nav-link" aria-current="page">
+                  Noticias
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/noticias">
-                Horarios
-              </a>
+              <Link href="/noticias">
+                <a className="nav-link" aria-current="page">
+                  Horarios
+                </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -77,14 +88,14 @@ export default function NavbarCustom() {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a className="dropdown-item" href="/informatica">
-                    Informatica Empresarial
-                  </a>
+                  <Link href="/informatica">
+                    <a className="dropdown-item">Informatica Empresarial</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/electronica">
-                    Electronica Industrial
-                  </a>
+                  <Link href="/electronica">
+                    <a className="dropdown-item">Electronica Industrial</a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -104,22 +115,57 @@ export default function NavbarCustom() {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a className="dropdown-item" href="/informatica">
-                    Pequeños Muebles
-                  </a>
+                  <Link href="/informatica">
+                    <a className="dropdown-item">Pequeños Muebles</a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/electronica">
-                    Diseño Digital
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/docentes">
-                    Docentes
-                  </a>
+                  <Link href="/informatica">
+                    <a className="dropdown-item">Pequeños Muebles</a>
+                  </Link>
                 </li>
               </ul>
             </li>
+            <li>
+              <Link href="/docentes">
+                <a className="nav-link">Docentes</a>
+              </Link>
+            </li>
+          </ul>
+          <ul className="navbar-nav">
+            {isLogged && (
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Cuenta
+                </a>
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li>
+                    <Link href="/admin">
+                      <a className="dropdown-item">Administración</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      className="dropdown-item"
+                      onClick={logOut}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Cerrar Sesión
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            )}
           </ul>
         </div>
       </div>
