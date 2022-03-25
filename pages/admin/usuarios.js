@@ -8,18 +8,15 @@ import { UsersService } from "../../client";
 import { ModalUser } from "../../components/admin/user/ModalUser";
 import Link from "next/link";
 import { UserRow } from "../../components/admin/user/UserRow";
+import { useIsAdmin } from "../../hooks/useIsAdmin";
+import { AppContext } from "../../components/context/appContext";
 
 const Usuarios = () => {
   const { setEmail, users, setUsers, handleGetUsers } = useFetchUsers();
-  const { isLogged, userInfo } = useContext(UserContext);
-  const router = useRouter();
   const [showCreateUserModal, setShowCreateUserModal] = useState(false);
   const emailForm = useRef(null);
-  useEffect(() => {
-    if (!isLogged || userInfo.role == "EDITOR") {
-      router.push("/login");
-    }
-  }, [isLogged, router, userInfo.role]);
+  const { setLoading } = useContext(AppContext);
+  useIsAdmin();
 
   const handleDelete = (id, full_name) => {
     Swal.fire({
@@ -30,7 +27,9 @@ const Usuarios = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
+          setLoading(true)
           await UsersService.deleteUserUsersUserIdDelete(id);
+          setLoading(false)
           Swal.fire("Eliminado", full_name, "success");
           setUsers(users.filter((user) => id != user.id));
         } catch (error) {
@@ -41,14 +40,12 @@ const Usuarios = () => {
   };
   const handleFilterUsers = (e) => {
     e.preventDefault();
-    setEmail(emailForm.current['email'].value)
+    setEmail(emailForm.current["email"].value);
   };
   return (
-    <div className="container">
+    <div className="container ">
       <h1 className="text-center mt-2">Administración de Usuarios</h1>
-      <form
-      className="my-4"
-       ref={emailForm} onSubmit={handleFilterUsers}>
+      <form className="my-4" ref={emailForm} onSubmit={handleFilterUsers}>
         <input
           className="form-control"
           type="text"
@@ -73,7 +70,7 @@ const Usuarios = () => {
       ) : (
         <h4 className="text-center mt-5">Usuario no encontrado</h4>
       )}
-      <div className="d-flex w-full gap-2 justify-content-center">
+      <div className="d-flex w-full gap-2 justify-content-center my-4">
         <ModalUser
           onClose={() => setShowCreateUserModal(false)}
           show={showCreateUserModal}

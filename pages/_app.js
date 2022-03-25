@@ -8,6 +8,9 @@ import { UserProvider } from "/components/context/userContext";
 //Fontawesome
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { AppProvider } from "../components/context/appContext";
+import { Footer } from "../components/general/Footer";
+
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }) {
@@ -19,10 +22,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <UserProvider>
-        <NavbarCustom />
-        <Component {...pageProps} />
-      </UserProvider>
+      <AppProvider>
+        <UserProvider>
+          <div className="d-flex flex-column min-vh-100">
+          <NavbarCustom />
+          <Component {...pageProps} />
+          <Footer />
+          </div>
+        </UserProvider>
+      </AppProvider>
     </>
   );
 }

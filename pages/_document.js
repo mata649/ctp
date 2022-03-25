@@ -5,11 +5,11 @@ export default function Document() {
   return (
     <Html>
       <Head />
-      <body className="d-flex flex-column min-vh-100">
+      <body>
         <Main />
         <NextScript />
         <div id="modal-root"></div>
-        <Footer />
+        
       </body>
     </Html>
   );

@@ -23,22 +23,42 @@
   transition-delay: 0.1s;
 } */
 
-
 .admin-module {
-  border: 1px solid black;
   border-radius: 10px;
   font-size: 5rem;
   cursor: pointer;
+
   transition-delay: 0.1;
   transition-duration: 0.2s;
   transition-timing-function: ease-in;
 }
 .admin-module:hover {
   transform: scale(105%);
-  background-color: #00aab5;
+  color: #fc8800;
+  background-color: #202020;
   transition-duration: 0.1s;
   transition-delay: 0.1s;
   transition-timing-function: ease-out;
+}
+.add-image {
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  background-color: #202020;
+  font-size: 40px;
+  border-radius: 10px;
+  color: #fc8800;
+  transition-duration: 0.2s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in;
+}
+
+.add-image:hover {
+  transform: scale(105%);
+  transition-duration: 0.1s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-out;
+  background-color: #202020e3;
 }
 
 .carousel-container {
@@ -61,7 +81,27 @@
   color: #c6c5c5;
   text-decoration: none;
 }
+.delete-button {
+  font-family: "calibri";
+  cursor: pointer;
+  font-size: 150px;
+  color: rgba(240, 2, 2, 0.562);
+  position: absolute;
+  top: -20%;
+  transition-duration: 0.2s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in;
+}
+.delete-button:hover {
+  transform: scale(110%);
+  transition-duration: 0.2s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-out;
+}
 
+.disable-button {
+  pointer-events: none !important;
+}
 .footer-icon {
   color: #fc8800;
   font-size: 1.2rem;
@@ -144,6 +184,15 @@
   transition-timing-function: ease-out;
 }
 
+.workshop-image {
+ 
+  height: 200px;
+  width: 250px;
+}
+.workshop-card img {
+  height: 125px;
+  width: 125px;
+}
 /* Modal */
 .modalBody {
   position: relative;

@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import reactDom from "react-dom";
 import { ModalContainer } from "/components/general/ModalContainer";
 import { UsersService } from "../../../client";
 import Swal from "sweetalert2";
+import { AppContext } from "../../context/appContext";
 export const ModalUser = ({ show, onClose, handleGetUsers, userInfo }) => {
   const [isBrowser, setIsBrowser] = useState(false);
-
+  const { setLoading } = useContext(AppContext);
   const form = useRef(null);
   useEffect(() => {
     setIsBrowser(true);
@@ -15,12 +16,14 @@ export const ModalUser = ({ show, onClose, handleGetUsers, userInfo }) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
       await UsersService.createUserUsersPost({
         email: form.current["email"].value,
         full_name: form.current["name"].value,
         password: form.current["password"].value,
         role: form.current["role"].value,
       });
+      setLoading(false);
       Swal.fire({
         title: "Éxito!!",
         text: "Usuario creado con éxito",
@@ -59,11 +62,13 @@ export const ModalUser = ({ show, onClose, handleGetUsers, userInfo }) => {
   const handleUpdateUser = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await UsersService.updateUserUsersUserIdPut(userInfo.id, {
         email: form.current["email"].value,
         full_name: form.current["name"].value,
         role: form.current["role"].value,
       });
+      setLoading(false);
       Swal.fire({
         title: "Éxito!!",
         text: "Usuario actualizado con éxito",

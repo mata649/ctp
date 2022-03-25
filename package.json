@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
     "generate-client": "openapi --input http://localhost:8000/openapi.json --output ./client --client axios"
@@ -18,15 +18,22 @@
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
     "html-to-draftjs": "^1.5.0",
+    "install": "^0.13.0",
     "moment": "^2.29.1",
+    "net": "^1.0.2",
     "next": "12.1.0",
+    "npm": "^8.5.5",
     "react": "17.0.2",
     "react-alice-carousel": "^2.5.1",
+    "react-color": "^2.19.3",
     "react-dom": "17.0.2",
     "react-draft-wysiwyg": "^1.14.7",
+    "react-loading-overlay": "^1.0.1",
     "sweetalert2": "^11.4.4",
-    "swiper": "^8.0.6"
+    "swiper": "^8.0.6",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",

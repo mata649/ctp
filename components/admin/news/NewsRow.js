@@ -1,11 +1,23 @@
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect } from "react";
 import { TableIcon } from "../TableIcon";
+import {useRouter} from 'next/router'
 import moment from "moment";
 export const NewsRow = ({ title, id, text, published, handleDelete }) => {
   useEffect(() => {
     moment.locale("es");
   }, []);
+  const router = useRouter();
+  const handleRedirectToNewsForm = () => {
+    router.push({
+      pathname: "/admin/noticia_form",
+      query: {
+        id,
+        text,
+        title
+      },
+    });
+  };
 
   return (
     <tr>
@@ -20,7 +32,7 @@ export const NewsRow = ({ title, id, text, published, handleDelete }) => {
         <TableIcon
           icon={faPen}
           title="Actualizar"
-          onClick={() => setShowUpdateUserModal(true)}
+          onClick={handleRedirectToNewsForm}
         />
       </td>
     </tr>

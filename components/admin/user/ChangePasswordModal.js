@@ -1,18 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import reactDom from "react-dom";
 import Swal from "sweetalert2";
 import { UsersService } from "../../../client";
+import { AppContext } from "../../context/appContext";
 import { ModalContainer } from "../../general/ModalContainer";
 
 export const ChangePasswordModal = ({ show, onClose, userId, userName }) => {
   const [isBrowser, setIsBrowser] = useState(false);
-
+  const {setLoading} = useContext(AppContext)
   const form = useRef(null);
   useEffect(() => {
     setIsBrowser(true);
   }, []);
   const handleChangePassword = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       await UsersService.changePasswordUserUsersChangePasswordUserIdPut(
         userId,
@@ -39,6 +41,7 @@ export const ChangePasswordModal = ({ show, onClose, userId, userName }) => {
         });
       }
     }
+    setLoading(false)
   };
   const modalContent = show && (
     <ModalContainer>

@@ -1,12 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { OpenAPI, UsersService } from "../client";
+import { AppContext } from "../components/context/appContext";
 import { setHeaderToken } from "../helpers/setHeaderToken";
 
 export const useUserInfo = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [jwt, setJwt] = useState("");
   const [userInfo, setUserInfo] = useState({});
+  const {setLoading} = useContext(AppContext)
+  
   const handleGetUserInfo = useCallback(async () => {
+    setLoading(true);
     try {
       setHeaderToken();
       const response =
@@ -15,7 +19,8 @@ export const useUserInfo = () => {
     } catch (err) {
       logOut();
     }
-  }, []);
+    setLoading(false);
+  }, [setLoading]);
 
   useEffect(() => {
     setJwt(localStorage.getItem("jwt"));

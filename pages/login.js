@@ -10,7 +10,6 @@ const Login = () => {
   const router = useRouter();
   useEffect(() => {
     if (isLogged) {
-      console.log(isLogged);
       router.push("/admin");
     }
   }, [isLogged, router]);
