@@ -80,12 +80,12 @@ requestBody: SpecialtyIn,
     }
 
     /**
-     * Update Speciality
+     * Delete Speciality
      * @param idSpecialty 
      * @returns SpecialtyOut Successful Response
      * @throws ApiError
      */
-    public static updateSpecialitySpecialtiesIdSpecialtyDelete(
+    public static deleteSpecialitySpecialtiesIdSpecialtyDelete(
 idSpecialty: string,
 ): CancelablePromise<SpecialtyOut> {
         return __request(OpenAPI, {

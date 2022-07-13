@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Rosario:wght@400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 * {
-  font-family: "Rosario", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 /* .btn-primary{
   background-color: #fff;
@@ -68,6 +67,10 @@
   border-radius: 20px;
 }
 
+.carousel-image {
+  aspect-ratio: 16 / 9;
+}
+
 .custom-footer h5 {
   color: #fffffe;
 }
@@ -106,7 +109,12 @@
   color: #fc8800;
   font-size: 1.2rem;
 }
-
+.link-login {
+  color: #838383 !important;
+}
+.link-login:hover {
+  color: #fc8800 !important;
+}
 .navbar,
 .navbar-default {
   font-size: 1.2rem;
@@ -115,6 +123,14 @@
 
 .nav-link {
   color: black !important;
+}
+
+.news-container img {
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100% !important;
+  height: auto !important;
 }
 
 .noticia-card {
@@ -135,6 +151,48 @@
   transition-timing-function: ease-out;
 }
 
+.skill-btn {
+  position: absolute;
+  right: 0%;
+  top: -10%;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fc8800;
+  transition-duration: 0.2s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in;
+}
+
+.skill-btn:hover {
+  transform: scale(115%);
+  transition-duration: 0.1s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-out;
+}
+
+.skill-bar {
+  padding: 5px;
+}
+
+.skill-bar-btn {
+  cursor: pointer;
+  color: rgb(240, 2, 2);
+}
+.skill-bar-btn {
+  color: rgb(240, 2, 2);
+  font-size: larger;
+  font-weight: bold;
+  transition-duration: 0.2s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in;
+}
+
+.skill-bar-btn:hover {
+  transform: scale(115%);
+  transition-duration: 0.1s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-out;
+}
 .swiper {
   width: 100%;
   height: 100%;
@@ -166,6 +224,22 @@
   height: 100%;
   object-fit: cover;
 }
+.swiper-button-next {
+  color: #202020 !important;
+}
+.swiper-button-prev {
+  color: #202020 !important;
+}
+
+.mission-background-top {
+  display: block;
+}
+.mission-background-bottom {
+  display: block;
+}
+.mission-container {
+  background-color: #00aab5;
+}
 
 .table-icon {
   padding: 2px;
@@ -183,9 +257,10 @@
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
 }
-
+.teachers-link{
+  
+}
 .workshop-image {
- 
   height: 200px;
   width: 250px;
 }

@@ -4,6 +4,7 @@ import { UserContext } from "../../components/context/userContext";
 import { faDesktop, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import { faHammer } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { ModuleButton } from "../../components/admin/ModuleButton";
 const Index = () => {
   const router = useRouter();
@@ -32,6 +33,13 @@ const Index = () => {
             title="Noticias"
             href="/admin/noticias"
             icon={faNewspaper}
+          />
+        )}
+        {userInfo.role != "EDITOR" && (
+          <ModuleButton
+            title="General"
+            href="/admin/informacion_general"
+            icon={faCircleInfo}
           />
         )}
         <ModuleButton title="Talleres" href="/admin/talleres" icon={faHammer} />

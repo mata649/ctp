@@ -1,6 +1,7 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useFetchWorkshops } from "../../hooks/useFetchWorkshops";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { UserContext } from "../../components/context/userContext";
 import { WorkshopList } from "../../components/admin/workshop/WorkshopList";
 import { WorkshopRow } from "../../components/admin/workshop/WorkshopRow";
@@ -9,9 +10,17 @@ import Swal from "sweetalert2";
 import { AppContext } from "../../components/context/appContext";
 const Talleres = () => {
   const { setTitle, workshops, setWorkshops } = useFetchWorkshops();
-  const { userInfo } = useContext(UserContext);
+  const { userInfo, isLogged } = useContext(UserContext);
   const titleForm = useRef(null);
   const { setLoading } = useContext(AppContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLogged) {
+      router.push("/login");
+    }
+  }, [isLogged, router]);
+
   const handleDelete = (id, title) => {
     Swal.fire({
       title: "¿Deseas eliminar a " + title + "?",

@@ -6,6 +6,10 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
+export type { Administrator } from './models/Administrator';
+export type { Body_upload_image_image__post } from './models/Body_upload_image_image__post';
+export type { GeneralInformationIn } from './models/GeneralInformationIn';
+export type { GeneralInformationOut } from './models/GeneralInformationOut';
 export type { HTTPValidationError } from './models/HTTPValidationError';
 export type { NewsIn } from './models/NewsIn';
 export type { NewsOut } from './models/NewsOut';
@@ -24,6 +28,8 @@ export type { ValidationError } from './models/ValidationError';
 export type { WorkshopIn } from './models/WorkshopIn';
 export type { WorkshopOut } from './models/WorkshopOut';
 
+export { GeneralInformationService } from './services/GeneralInformationService';
+export { ImageService } from './services/ImageService';
 export { NewsService } from './services/NewsService';
 export { SpecialtiesService } from './services/SpecialtiesService';
 export { UsersService } from './services/UsersService';

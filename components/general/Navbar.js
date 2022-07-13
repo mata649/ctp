@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { useContext } from "react";
+import { useFetchSpecialties } from "../../hooks/useFetchSpecialties";
+import { useFetchWorkshops } from "../../hooks/useFetchWorkshops";
 import { UserContext } from "../context/userContext";
 export default function NavbarCustom() {
-  const { isLogged, logOut, userInfo } = useContext(UserContext);
-
+  const { isLogged, logOut, userInfo, generalInformation } =
+    useContext(UserContext);
+  const { specialties } = useFetchSpecialties();
+  const { workshops } = useFetchWorkshops();
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -66,7 +70,7 @@ export default function NavbarCustom() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/noticias">
+              <Link href="/horarios">
                 <a className="nav-link" aria-current="page">
                   Horarios
                 </a>
@@ -87,16 +91,13 @@ export default function NavbarCustom() {
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li>
-                  <Link href="/informatica">
-                    <a className="dropdown-item">Informatica Empresarial</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/electronica">
-                    <a className="dropdown-item">Electronica Industrial</a>
-                  </Link>
-                </li>
+                {specialties?.map(({ id, title }) => (
+                  <li key={id}>
+                    <Link href={"/especialidades/" + id}>
+                      <a className="dropdown-item">{title}</a>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </li>
             <li className="nav-item dropdown">
@@ -114,16 +115,15 @@ export default function NavbarCustom() {
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li>
-                  <Link href="/informatica">
-                    <a className="dropdown-item">Pequeños Muebles</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/informatica">
-                    <a className="dropdown-item">Pequeños Muebles</a>
-                  </Link>
-                </li>
+                {workshops?.map(({ id, title }) => (
+                  <li key={id}>
+                    <Link href={"/talleres/" + id}>
+                      <a className="dropdown-item">{title}</a>
+                    </Link>
+                  </li>
+                ))}
+             
+              
               </ul>
             </li>
             <li>

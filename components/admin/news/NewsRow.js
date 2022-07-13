@@ -3,9 +3,11 @@ import React, { useEffect } from "react";
 import { TableIcon } from "../TableIcon";
 import {useRouter} from 'next/router'
 import moment from "moment";
+import 'moment/locale/es';
 export const NewsRow = ({ title, id, text, published, handleDelete }) => {
   useEffect(() => {
-    moment.locale("es");
+    moment.locale('es');
+  
   }, []);
   const router = useRouter();
   const handleRedirectToNewsForm = () => {
@@ -22,7 +24,7 @@ export const NewsRow = ({ title, id, text, published, handleDelete }) => {
   return (
     <tr>
       <th>{title}</th>
-      <td>{moment(published).format("Do MMMM YYYY")}</td>
+      <td>{moment(published).format("D MMMM YYYY")}</td>
       <td className="d-flex gap-3">
         <TableIcon
           icon={faTrash}

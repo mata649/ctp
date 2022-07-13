@@ -16,7 +16,7 @@ config.autoAddCss = false;
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     typeof document !== undefined
-      ? require("bootstrap/dist/js/bootstrap")
+      ? import("bootstrap/dist/js/bootstrap.bundle")
       : null;
   }, []);
 

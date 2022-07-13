@@ -4,7 +4,9 @@ import { Footer } from "../components/general/Footer";
 export default function Document() {
   return (
     <Html>
-      <Head />
+      <Head>
+        <title>CTP Cañas</title>
+        </Head>
       <body>
         <Main />
         <NextScript />

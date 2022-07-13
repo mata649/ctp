@@ -3,13 +3,26 @@ import LoadingOverlay from "react-loading-overlay";
 
 export const AppContext = createContext();
 
+
+
+
+
+
+
 export const AppProvider = ({ children }) => {
+  
   const [loading, setLoading] = useState(false);
+  
   return (
     <AppContext.Provider value={{ setLoading }}>
-      <LoadingOverlay active={loading} spinner text="Cargando...">
+       
+       {loading?
+        <h1>Cargando</h1>:
         {children}
-      </LoadingOverlay>
+       } 
+    
     </AppContext.Provider>
   );
 };
+
+

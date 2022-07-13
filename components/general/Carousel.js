@@ -11,12 +11,12 @@ export const Carousel = ({ images }) => {
     <div className="carousel-container">
       <div className="carousel-background"></div>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        {images.map((image) => (
+        {images?.map((image) => (
           <SwiperSlide key={image}>
             <img
               src={image}
               alt="Carousel Image"
-              style={{ width: "1024px", height: "576px" }}
+              className="carousel-image"
             />
           </SwiperSlide>
         ))}

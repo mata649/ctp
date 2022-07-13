@@ -25,6 +25,7 @@ const NoticiaForm = () => {
       setEditorState(EditorState.createWithContent(contentState));
     }
   }, [contentState]);
+  
   const handlePostNews = async () => {
     setLoading(true);
     try {
